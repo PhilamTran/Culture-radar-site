@@ -62,13 +62,13 @@ export default function Footer() {
           <div className="rounded-xl bg-white p-5 shadow-md">
             <h3 className="mb-3 text-2xl font-semibold">Légale</h3>
             <div className="flex flex-col gap-1 text-sm">
-              <Link href="/bientot" className="text-blue-700 hover:underline">
+              <Link href="/mentions-legales" className="text-blue-700 hover:underline">
                 Conditions d’utilisation
               </Link>
-              <Link href="/bientot" className="text-blue-700 hover:underline">
+              <Link href="/mentions-legales" className="text-blue-700 hover:underline">
                 Politique de confidentialité
               </Link>
-              <Link href="/bientot" className="text-blue-700 hover:underline">
+              <Link href="/mentions-legales" className="text-blue-700 hover:underline">
                 Mentions légales
               </Link>
             </div>
