@@ -5,17 +5,25 @@ import HomeDiscovery from "@/components/HomeDiscovery";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Accueil",
+  title:
+    "Concerts, festivals, expositions et sorties culturelles | CultureRadar",
+
   description:
-    "Découvrez les événements autour de vous : concerts, expositions, festivals et sorties. CultureRadar vous aide à trouver quoi faire près de chez vous.",
+    "Trouvez facilement des concerts, expositions, festivals, sorties et événements culturels autour de vous avec CultureRadar.",
+
   alternates: {
     canonical: "/",
   },
+
   openGraph: {
-    title: "CultureRadar - Trouvez des événements près de vous",
+    title:
+      "Concerts, festivals, expositions et sorties culturelles | CultureRadar",
+
     description:
-      "Explorez concerts, expositions et événements près de chez vous avec CultureRadar.",
-    url: "https://cultureradar.fr",
+      "Explorez concerts, expositions, festivals et sorties près de chez vous avec CultureRadar.",
+
+    url: "https://culture-radar-site.vercel.app",
+
     images: [
       {
         url: "/images/fond-hero-loop.png",
@@ -32,13 +40,14 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "CultureRadar",
-    url: "https://cultureradar.fr",
+    url: "https://culture-radar-site.vercel.app",
+
     description:
       "Découvrez facilement les événements autour de vous : concerts, expositions, sorties et bien plus encore.",
   };
+
   return (
     <main className="bg-white">
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import EventMap from "@/components/EventMap";
+import EventRegistrationButton from "@/components/EventRegistrationButton";
 
 type EventDetailPageProps = {
   params: Promise<{
@@ -23,6 +24,8 @@ type SupabaseEvent = {
   longitude: number | null;
   start_time: string | null;
 };
+
+const siteUrl = "https://culture-radar-site.vercel.app";
 
 function formatEventDate(startTime: string | null) {
   if (!startTime) return "Date à venir";
@@ -66,8 +69,7 @@ export async function generateMetadata({
   }
 
   const description =
-    event.description ||
-    `${event.title} à ${event.city} sur CultureRadar.`;
+    event.description || `${event.title} à ${event.city} sur CultureRadar.`;
 
   return {
     title: event.title,
@@ -78,7 +80,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${event.title} | CultureRadar`,
       description,
-      url: `https://cultureradar.fr/event/${event.id}`,
+      url: `${siteUrl}/event/${event.id}`,
       type: "article",
       images: [
         {
@@ -108,11 +110,10 @@ export default async function EventDetailPage({
     notFound();
   }
 
-  const eventUrl = `https://cultureradar.fr/event/${event.id}`;
+  const eventUrl = `${siteUrl}/event/${event.id}`;
   const eventImage = event.image || "/images/fond-a.png";
   const eventDescription =
-    event.description ||
-    `${event.title} à ${event.city} sur CultureRadar.`;
+    event.description || `${event.title} à ${event.city} sur CultureRadar.`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -122,7 +123,9 @@ export default async function EventDetailPage({
     startDate: event.start_time || undefined,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
-    image: [eventImage.startsWith("http") ? eventImage : `https://cultureradar.fr${eventImage}`],
+    image: [
+      eventImage.startsWith("http") ? eventImage : `${siteUrl}${eventImage}`,
+    ],
     url: eventUrl,
     location: {
       "@type": "Place",
@@ -145,7 +148,7 @@ export default async function EventDetailPage({
     organizer: {
       "@type": "Organization",
       name: "CultureRadar",
-      url: "https://cultureradar.fr",
+      url: siteUrl,
     },
   };
 
@@ -205,6 +208,8 @@ export default async function EventDetailPage({
                 {event.address || "Adresse à confirmer"}
               </p>
             </div>
+
+            <EventRegistrationButton eventId={event.id} />
 
             <div className="mb-8 rounded-2xl bg-gray-50 p-5">
               <h2 className="mb-3 text-xl font-semibold text-gray-900">

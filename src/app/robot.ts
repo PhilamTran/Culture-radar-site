@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://cultureradar.fr/sitemap.xml",
+    sitemap: "https://culture-radar-site.vercel.app/sitemap.xml",
   };
 }
