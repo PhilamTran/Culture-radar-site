@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://culture-radar-site.vercel.app/sitemap.xml
