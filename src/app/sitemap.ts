@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://cultureradar.fr";
+  const baseUrl = "https://culture-radar-site.vercel.app";
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
